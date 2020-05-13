@@ -77,12 +77,12 @@ public class View {
     }
     
     private void printOperationFailedException(OperationFailedException opfex) {
-        System.out.println("EXCEPTION - View: Could not connect to inventory, " 
+        System.out.println("Alert! - View: Could not connect to inventory, " 
                     + "check internet connection");
     }
     
     private void printItemNotFoundException(ItemNotFoundException infex) {
-        System.out.println("EXCEPTION - View: Item with Item Identifier " 
+        System.out.println("Alert! - View: Item with Item Identifier " 
                     + infex.getItemIdentifier().getDoubleIdentifier()
                     + " was not found in inventory");
             logMsg(infex);

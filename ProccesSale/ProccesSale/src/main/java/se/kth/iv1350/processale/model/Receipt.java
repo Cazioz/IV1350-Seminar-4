@@ -45,12 +45,26 @@ public class Receipt {
     * @param itemToBeAdded The Item to be added to the ongoing sale
     */
     void addNewItem(Item itemToBeAdded) {
-        listOfItemsInSale.add(itemToBeAdded);
+        //listOfItemsInSale.add(itemToBeAdded);
+        addItemToListOfItems(itemToBeAdded);
         addItemQuantity(itemToBeAdded);
         this.priceOfSale = new AmountDTO(this.priceOfSale.getAmount() + 
                 itemToBeAdded.getPriceOfProduct().getAmount(), "SEK");
         this.totalVat = new AmountDTO(this.totalVat.getAmount()
             + itemToBeAdded.getVATOfProduct(), "SEK");
+    }
+    
+    private void addItemToListOfItems(Item itemToBeAdded) {
+        boolean itemExistsInList = false;
+        for(Item itemInList: listOfItemsInSale) {
+            if (itemToBeAdded.matchingItems(itemInList.getItemIdentifier())) {
+                itemExistsInList = true;
+                break;
+            }
+        }
+        if(!itemExistsInList) {
+            listOfItemsInSale.add(itemToBeAdded);
+        }
     }
     
     /**

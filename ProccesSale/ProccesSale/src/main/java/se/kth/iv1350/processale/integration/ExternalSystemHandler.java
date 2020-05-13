@@ -41,7 +41,7 @@ public class ExternalSystemHandler {
         catch(DatabaseException dbExc){
             System.out.println("---LOG DATABASEEXCEPTION---");
             System.out.println("Failed to connect to database with IP " 
-                    + dbExc.getIPAddress() + ". Date and Time: " 
+                    + dbExc.getIPAddress() + ". \nDate and Time: " 
                     + LocalDate.now() + ", " + LocalTime.now());
             dbExc.printStackTrace();
             System.out.println("---END OF LOG DATABASEEXCEPTION---");
